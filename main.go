@@ -24,8 +24,9 @@ func SetupRouter() *mux.Router {
 	r.HandleFunc("/current", GetCurrentTimerHandler).Methods("GET")
 	r.HandleFunc("/timer/{id}", GetOneHandler).Methods("GET")
 
-	r.HandleFunc("/", StartTimerHandler).Methods("POST")
 	r.HandleFunc("/stop", StopTimer).Methods("PUT")
+
+	r.HandleFunc("/", StartTimerHandler).Methods("POST")
 	r.HandleFunc("/delete/{id}", DeleteTimer).Methods("POST")
 
 	return r
